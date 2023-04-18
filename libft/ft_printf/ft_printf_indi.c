@@ -1,36 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_printf_indi.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/09 18:08:49 by ssurilla          #+#    #+#             */
-/*   Updated: 2023/04/18 15:47:56 by ssurilla         ###   ########.fr       */
+/*   Created: 2023/02/13 19:44:22 by ssurilla          #+#    #+#             */
+/*   Updated: 2023/03/25 18:29:40 by ssurilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "ft_printf.h"
 
-# include <fcntl.h>
-# include "libft/libft.h"
-# include "./mlx_linux/mlx.h"
-# include <stdio.h>
-
-typedef struct s_vars
+static void	putnbr(unsigned long long digit)
 {
-	void	*img;
-	void	*mlx;
-	void	*win;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_vars;
+	if (digit > 9)
+	{
+		putnbr(digit / 10);
+		putnbr(digit % 10);
+	}
+	else
+	{
+		printfc(digit + '0');
+	}
+}
 
-int close(int keycode, t_vars *vars);
-int key_hook(int keycode, t_vars *vars);
+int	printfdi(long long n)
+{
+	int	counter;
 
-
-#endif
+	if (n < 0)
+	{
+		counter = 1;
+		write(1, "-", 1);
+		n = n * -1;
+	}
+	else
+		counter = 0;
+	if (n == 0)
+		counter++;
+	putnbr(n);
+	while (n != 0)
+	{
+		counter++;
+		n /= 10;
+	}
+	return (counter);
+}

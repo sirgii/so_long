@@ -6,7 +6,7 @@
 #    By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 18:45:08 by ssurilla          #+#    #+#              #
-#    Updated: 2022/12/10 20:55:52 by ssurilla         ###   ########.fr        #
+#    Updated: 2023/04/18 15:44:23 by ssurilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,29 +45,33 @@ MY_SOURCES = ft_isalpha.c \
 			 ft_putchar_fd.c \
 			 ft_putstr_fd.c \
 			 ft_putendl_fd.c \
-			 ft_putnbr_fd.c 
+			 ft_putnbr_fd.c \
+			 get_next_line.c \
+			 get_next_line_utils.c \
 			 
 
 MY_OBJECTS = $(MY_SOURCES:.c=.o)
 
 AR = ar crs
 
-CC = gcc
+CC = cc
 
 CFLAGS += -Wall -Wextra -Werror
 
 CUR_DIR = $(shell pwd)
 
 $(NAME): $(MY_OBJECTS)
-		$(AR) $(NAME) $(MY_OBJECTS)
+		-make -C ft_printf
+		$(AR) $(NAME) ft_printf/ft_printf.a $(MY_OBJECTS) 
+		
 
 all: $(NAME)
 
 clean:
-	rm -f *.o
+	rm -f *.o ft_printf/*.o
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) ft_printf/ft_printf.a
 
 re: fclean all
 
