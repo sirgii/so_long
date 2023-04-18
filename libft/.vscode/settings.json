@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "string.h": "c",
-        "libft.h": "c",
-        "sstream": "c",
-        "stdlib.h": "c",
-        "unistd.h": "c"
-    }
-}
