@@ -6,7 +6,7 @@
 /*   By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 18:08:49 by ssurilla          #+#    #+#             */
-/*   Updated: 2023/04/20 16:23:56 by ssurilla         ###   ########.fr       */
+/*   Updated: 2023/04/21 18:35:39 by ssurilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include <sys/stat.h>
 # include <sys/types.h>
+# include <stdlib.h>
 
 # define TILE_WIDTH 32
 # define TILE_HEIGHT 32
@@ -62,5 +63,19 @@ typedef struct s_vars
 	int		imgs_created;
 	int		count;
 }			t_vars;
+
+int	img_player_up(t_vars *vars);
+int	img_player_down(t_vars *vars);
+int	img_player_left(t_vars *vars);
+int	img_player_right(t_vars *vars);
+int	img_bg(t_vars *vars);
+int	img_wall(t_vars *vars);
+int	img_collect(t_vars *vars);
+int	img_exit(t_vars *vars);
+int init_imgs(t_vars *vars);
+int	print_init_img(t_vars *vars, t_stru mem);
+void	check_map_data(char *file_name, t_vars *vars);
+void	exit_clean(t_vars *vars);
+
 
 #endif
