@@ -54,8 +54,14 @@ SRCS        :=      utils.c \
                           libft/ft_atoi.c \
                           libft/ft_strlen.c \
                           libft/ft_memmove.c \
+                          img_char.c \
                           so_long.c \
-                          main.c \
+                          check_map.c \
+                          print_img.c \
+                          ft_strjoin_2.c \
+                          moves.c \
+                          img_textu.c \
+                          init_map.c \
                           
 OBJS        := $(SRCS:.c=.o)
 

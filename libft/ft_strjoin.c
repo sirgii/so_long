@@ -6,7 +6,7 @@
 /*   By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:52:45 by ssurilla          #+#    #+#             */
-/*   Updated: 2022/12/01 17:20:52 by ssurilla         ###   ########.fr       */
+/*   Updated: 2023/04/25 18:25:05 by ssurilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	res[i + j] = '\0';
 	return (res);
 }
-/*
-int	main(void)
-{
-	char const	*testd;
-	char const	*tests;
-
-    testd = "abcde";
-    tests = "  ab";
-    printf("%s\n", ft_strjoin(testd, tests));
-    return (0);
-}
-*/

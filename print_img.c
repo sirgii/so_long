@@ -6,7 +6,7 @@
 /*   By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 13:31:05 by ssurilla          #+#    #+#             */
-/*   Updated: 2023/04/21 18:13:47 by ssurilla         ###   ########.fr       */
+/*   Updated: 2023/04/25 19:01:34 by ssurilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,19 @@ int	init_imgs(t_vars *vars)
 
 static void	help(size_t i, size_t j, int *pos, t_vars *vars)
 {
-	if (vars->map[j * (vars->mem->cols + 1) + i] == '0')
+	if (vars->nl[j * (vars->mem->cols + 1) + i] == '0')
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->img_arr[0].img,
 				pos[0], pos[1]);
-	else if (vars->map[j * (vars->mem->cols + 1) + i] == '1')
+	else if (vars->nl[j * (vars->mem->cols + 1) + i] == '1')
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->img_arr[1].img,
 				pos[0], pos[1]);
-	else if (vars->map[j * (vars->mem->cols + 1) + i] == 'C')
+	else if (vars->nl[j * (vars->mem->cols + 1) + i] == 'C')
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->img_arr[2].img,
 				pos[0], pos[1]);
-	else if (vars->map[j * (vars->mem->cols + 1) + i] == 'E')
+	else if (vars->nl[j * (vars->mem->cols + 1) + i] == 'E')
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->img_arr[3].img,
 				pos[0], pos[1]);
-	else if (vars->map[j * (vars->mem->cols + 1) + i] == 'P')
+	else if (vars->nl[j * (vars->mem->cols + 1) + i] == 'P')
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->img_arr[4].img,
 				pos[0], pos[1]);
 }

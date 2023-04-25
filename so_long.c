@@ -6,7 +6,7 @@
 /*   By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 17:54:06 by ssurilla          #+#    #+#             */
-/*   Updated: 2023/04/21 18:37:05 by ssurilla         ###   ########.fr       */
+/*   Updated: 2023/04/25 19:01:47 by ssurilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	exit_clean(t_vars *vars)
 		free(vars->mem);
 	if (vars->imgs_created)
 		free(vars->img_arr);
-	if (vars->map)
-		free(vars->map);
+	if (vars->nl)
+		free(vars->nl);
 }
 
 static int	start_game(t_vars *vars)
@@ -51,7 +51,13 @@ void	check_map_data(char *file_name, t_vars *vars)
 	i = ft_strlen(file_name) - 4;
 	if (i <= 0)
 	{
-		ft_printf("Insert correct .ber file.\n");
+		ft_printf("Insert correct .ber file!\n");
+		exit_clean(vars);
+		exit(0);
+	}
+	if (ft_strncmp(&file_name[i], ".ber", 4) != 0)
+	{
+		ft_printf("Insert correct .ber file!\n");
 		exit_clean(vars);
 		exit(0);
 	}
@@ -70,4 +76,14 @@ int	main(int argc, char *argv[])
 	vars.mem = (t_stru *)ft_calloc(1, sizeof(t_stru));
 	if (!vars.mem)
 		return (1);
+	if (!fill_array(argv[1], &vars.nl, vars.mem))
+	{
+		exit_clean(&vars);
+		return (1);
+	}
+	if (!start_game(&vars))
+		return (1);
+	mlx_loop(vars.mlx);
+	exit_clean(&vars);
+	return (0);
 }
