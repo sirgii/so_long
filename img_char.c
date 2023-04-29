@@ -6,7 +6,7 @@
 /*   By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 13:40:05 by ssurilla          #+#    #+#             */
-/*   Updated: 2023/04/25 19:02:05 by ssurilla         ###   ########.fr       */
+/*   Updated: 2023/04/27 15:29:51 by ssurilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	img_player_right(t_vars *vars)
 		return (1);
 	vars->img_arr[7].img_data = (int *)mlx_get_data_addr(
 		vars->img_arr[7].img, &vars->img_arr[7].bits_per_pixel,
-			&vars->img_arr[7], &vars->img_arr[7].endian);
+			&vars->img_arr[7].line_length, &vars->img_arr[7].endian);
 	if (!vars->img_arr[7].img_data)
 		return (1);
 	return (0);

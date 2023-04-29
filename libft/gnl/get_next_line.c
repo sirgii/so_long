@@ -6,7 +6,7 @@
 /*   By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 20:53:15 by ssurilla          #+#    #+#             */
-/*   Updated: 2023/03/13 19:40:16 by ssurilla         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:39:50 by ssurilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*free_dict(char *buffer, char *buf)
 {
 	char	*temp;
 
-	temp = ft_strjoin(buffer, buf);
+	temp = ft_strjoin2(buffer, buf);
 	free(buffer);
 	return (temp);
 }
@@ -31,7 +31,7 @@ char	*print_line(char *dict)
 		return (NULL);
 	while (dict[counter] && dict[counter] != '\n')
 		counter++;
-	newstr = ft_calloc(counter + 2, sizeof(char));
+	newstr = ft_calloc2(counter + 2, sizeof(char));
 	counter = 0;
 	while (dict[counter] && dict[counter] != '\n')
 	{
@@ -79,8 +79,8 @@ char	*get_dict_input(int fd, char *dict)
 	int		byte_read;
 
 	if (!dict)
-		dict = ft_calloc(1, 1);
-	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+		dict = ft_calloc2(1, 1);
+	buffer = ft_calloc2(BUFFER_SIZE + 1, sizeof(char));
 	byte_read = 1;
 	while (byte_read > 0)
 	{
@@ -93,7 +93,7 @@ char	*get_dict_input(int fd, char *dict)
 		}
 		buffer[byte_read] = 0;
 		dict = free_dict(dict, buffer);
-		if (ft_strchr(buffer, '\n'))
+		if (ft_strchr2(buffer, '\n'))
 			break ;
 	}
 	free(buffer);

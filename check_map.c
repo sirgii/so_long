@@ -6,7 +6,7 @@
 /*   By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 17:19:28 by ssurilla          #+#    #+#             */
-/*   Updated: 2023/04/25 19:05:52 by ssurilla         ###   ########.fr       */
+/*   Updated: 2023/04/27 15:27:59 by ssurilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,13 @@ int	last_line(char *nl, t_stru *mem)
 		ft_printf("Map is not rectangular!");
 		return (1);
 	}
-	if (mem->exit < 1 || mem->collectible < 1 || mem->sp < 1)
+	if (mem->exit < 1 || mem->collectible < 1 || mem->ppos < 1)
 	{
 		ft_printf("Map needs at least one exit,");
 		ft_printf(" one collectible and one player position!\n");
 		return (1);
 	}
-	if (mem->sp > 1)
+	if (mem->ppos > 1)
 	{
 		ft_printf("Not more than one starting position allowed");
 		return (1);

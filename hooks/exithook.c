@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin_2.c                                     :+:      :+:    :+:   */
+/*   exithook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/25 18:29:24 by ssurilla          #+#    #+#             */
-/*   Updated: 2023/04/27 15:31:44 by ssurilla         ###   ########.fr       */
+/*   Created: 2023/04/27 15:43:24 by ssurilla          #+#    #+#             */
+/*   Updated: 2023/04/28 16:20:05 by ssurilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-char	*ft_strjoin_2(char *s1, char *s2)
+int	red_x(t_vars *vars)
 {
-	char *ptr;
-	unsigned long size;
-	char *temp;
+	exit_clean(vars);
+	exit(1);
+	return (0);
+}
 
-	temp = ft_strdup(s1);
-	free(s1);
-	if (!s1 || !s2)
-		return (0);
-	size = ft_strlen(temp) + ft_strlen(s2);
-	ptr = malloc(size + 1);
-	if (!ptr)
-		return (0);
-	ft_memcpy(ptr, temp, ft_strlen(temp));
-	ft_memcpy(&ptr[ft_strlen(temp)], s2, ft_strlen(s2));
-	ptr[size] = '\0';
-	free(temp);
-	return (ptr);
+int	exithook(int keycode, t_vars *vars)
+{
+	if (keycode == 53)
+	{
+		mlx_destroy_window(vars->mlx, vars->win);
+		exit_clean(vars);
+		exit(1);
+	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 18:45:08 by ssurilla          #+#    #+#              #
-#    Updated: 2023/04/18 15:44:23 by ssurilla         ###   ########.fr        #
+#    Updated: 2023/04/29 16:33:36 by ssurilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,8 +46,8 @@ MY_SOURCES = ft_isalpha.c \
 			 ft_putstr_fd.c \
 			 ft_putendl_fd.c \
 			 ft_putnbr_fd.c \
-			 get_next_line.c \
-			 get_next_line_utils.c \
+			 gnl/get_next_line.c \
+			 gnl/get_next_line_utils.c \
 			 
 
 MY_OBJECTS = $(MY_SOURCES:.c=.o)

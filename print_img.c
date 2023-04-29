@@ -6,7 +6,7 @@
 /*   By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 13:31:05 by ssurilla          #+#    #+#             */
-/*   Updated: 2023/04/25 19:01:34 by ssurilla         ###   ########.fr       */
+/*   Updated: 2023/04/27 15:24:49 by ssurilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	init_imgs(t_vars *vars)
 	return (0);
 }
 
+// display img from char pos(i=column & j=row) in nl
 static void	help(size_t i, size_t j, int *pos, t_vars *vars)
 {
 	if (vars->nl[j * (vars->mem->cols + 1) + i] == '0')

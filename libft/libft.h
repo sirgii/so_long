@@ -6,7 +6,7 @@
 /*   By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 20:37:46 by ssurilla          #+#    #+#             */
-/*   Updated: 2023/04/18 15:41:55 by ssurilla         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:32:28 by ssurilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include "get_next_line.h"
+# include "gnl/get_next_line.h"
 # include "ft_printf/ft_printf.h"
 
 int		ft_atoi(const char *nptr);

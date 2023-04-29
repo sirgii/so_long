@@ -6,7 +6,7 @@
 /*   By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 17:54:06 by ssurilla          #+#    #+#             */
-/*   Updated: 2023/04/25 19:01:47 by ssurilla         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:17:13 by ssurilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	start_game(t_vars *vars)
 	}
 	vars->win = mlx_new_window(vars->mlx, 32 * vars->mem->cols, 32
 			* vars->mem->rows, "So_Long");
-	if (!vars->win || !print_initial_img(vars, *vars->mem))
+	if (!vars->win || !print_init_img(vars, *vars->mem))
 	{
 		exit_clean(vars);
 		return (1);
@@ -66,8 +66,8 @@ void	check_map_data(char *file_name, t_vars *vars)
 int	main(int argc, char *argv[])
 {
 	t_vars	vars;
-	
-	if(argc != 2)
+
+	if (argc != 2)
 	{
 		ft_printf("Insert only one .ber file.\n");
 		return (1);
@@ -83,6 +83,8 @@ int	main(int argc, char *argv[])
 	}
 	if (!start_game(&vars))
 		return (1);
+	mlx_key_hook(vars.win, &key_hook, &vars);
+	mlx_hook(vars.win, 17, 0, &red_x, &vars);
 	mlx_loop(vars.mlx);
 	exit_clean(&vars);
 	return (0);
