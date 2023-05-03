@@ -5,33 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/18 16:31:17 by ssurilla          #+#    #+#             */
-/*   Updated: 2023/04/18 16:37:46 by ssurilla         ###   ########.fr       */
+/*   Created: 2023/05/01 19:59:03 by ssurilla          #+#    #+#             */
+/*   Updated: 2023/05/03 18:25:11 by ssurilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "so_long.h"
+#include "so_long.h"
 
-typedef struct	s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
-
-int	main(void)
+int	main(int argc, char **argv)
 {
-	void	*mlx;
-	void	*mlx_win;
-	t_data	img;
+	t_main  *main;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-	img.img = mlx_new_image(mlx, 1920, 1080);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-								&img.endian);
-	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
+	if (argc <= 1)
+	{
+		ft_printf("Error \n Invalid input(./so_long + .ber )");
+		exit(1);
+	}
+	main = (t_main *)malloc(sizeof(t_main));
+	main->mlx = mlx_init();
+	main->win = mlx_new_window(main->mlx, 1920, 1090, "SO_LONG");
+	win_init(main, argv[1]);
+	mlx_hook(main->win, 2, 1L, keypress_han, main);
+    mlx_hook(main->win, 17, 0, close_prog, main);
+    mlx_loop_hook(main->mlx, rend_nextfr, main);
+    mlx_loop(main->mlx);
+	return (0);
 }
+                

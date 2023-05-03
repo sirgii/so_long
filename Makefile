@@ -14,7 +14,8 @@ FLAGS    := -Wall -Wextra -Werror
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS        :=      libft/ft_bzero.c \
+SRCS        :=      so_longmain.c \
+                          libft/ft_bzero.c \
                           libft/ft_printf/ft_printf.c \
                           libft/ft_printf/ft_printf_indi.c \
                           libft/ft_printf/ft_printf_hexa.c \
@@ -53,18 +54,11 @@ SRCS        :=      libft/ft_bzero.c \
                           libft/ft_atoi.c \
                           libft/ft_strlen.c \
                           libft/ft_memmove.c \
-                          img_char.c \
-                          so_long.c \
-                          check_map.c \
-                          print_img.c \
-                          ft_strjoin_2.c \
-                          img_textu.c \
-                          init_map.c \
-                          hooks/utils.c \
-                          hooks/exithook.c \
-                          hooks/endgame.c \
-                          hooks/keycodes.c \
-                          hooks/keyhook.c \
+                          gets.c \
+                          map_check.c \
+                          init_win.c \
+                          init_img.c \
+                          movement.c \
                           
 OBJS        := $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 19:08:58 by ssurilla          #+#    #+#             */
-/*   Updated: 2023/04/29 16:42:56 by ssurilla         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:55:12 by ssurilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	*cal_memset(void *s, int c, size_t n)
 	return (s);
 }
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc2(size_t nmemb, size_t size)
 {
 	void	*newstr;
 	size_t	total;
