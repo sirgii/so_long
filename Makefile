@@ -14,7 +14,7 @@ FLAGS    := -Wall -Wextra -Werror
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS        :=      so_longmain.c \
+SRCS        :=      error_check.c \
                           libft/ft_bzero.c \
                           libft/ft_printf/ft_printf.c \
                           libft/ft_printf/ft_printf_indi.c \
@@ -57,6 +57,8 @@ SRCS        :=      so_longmain.c \
                           gets.c \
                           map_check.c \
                           init_win.c \
+                          error_utils.c \
+                          main.c \
                           init_img.c \
                           movement.c \
                           

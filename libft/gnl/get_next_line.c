@@ -6,13 +6,13 @@
 /*   By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 20:53:15 by ssurilla          #+#    #+#             */
-/*   Updated: 2023/04/29 16:39:50 by ssurilla         ###   ########.fr       */
+/*   Updated: 2023/05/05 18:09:55 by ssurilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*free_dict(char *buffer, char *buf)
+char	*free_dict2(char *buffer, char *buf)
 {
 	char	*temp;
 
@@ -92,7 +92,7 @@ char	*get_dict_input(int fd, char *dict)
 			return (NULL);
 		}
 		buffer[byte_read] = 0;
-		dict = free_dict(dict, buffer);
+		dict = free_dict2(dict, buffer);
 		if (ft_strchr2(buffer, '\n'))
 			break ;
 	}

@@ -6,7 +6,7 @@
 /*   By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 18:08:49 by ssurilla          #+#    #+#             */
-/*   Updated: 2023/05/03 18:18:46 by ssurilla         ###   ########.fr       */
+/*   Updated: 2023/05/05 18:01:52 by ssurilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ typedef struct s_main
 	t_map		map;
 }				t_main;
 
-// init_img 
+// init_img
 void			first_rend(t_main *main);
 int				rend_nextfr(t_main *main);
 void			img_check(int counter, t_main *main, int j, int i);
@@ -126,17 +126,19 @@ void			move_down(t_main *main);
 void			move_up(t_main *main);
 void			move_left(t_main *main);
 void			move_right(t_main *main);
-void			movement(t_main *main, int dir);
+// void			movement(t_main *main, int dir);
 
+// error check
+void			init_error(t_main *main, int lines);
 int				move_and_check(t_main *main);
-int				spread(t_main *main, char *map, int ppos);
+// int				spread(t_main *main, char *map, int ppos);
 int				check_equal(t_main *main, int lines, int currentline,
-					int llentota);
-					
-int				max_rounds(t_main *main, char *map);
+					int linelentot);
+
+// error utils
+int				max_tiles(t_main *main, char *map);
 int				check_exit_error(char *dup, t_main *main);
 char			*first_rep(int ppos, char *dup, t_main *main);
 char			*check_and_rep(char *dup, t_main *main);
-void			init_error(t_main *main, int lines);
 
 #endif
