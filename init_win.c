@@ -6,7 +6,7 @@
 /*   By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:36:59 by ssurilla          #+#    #+#             */
-/*   Updated: 2023/05/05 18:01:31 by ssurilla         ###   ########.fr       */
+/*   Updated: 2023/05/08 17:42:08 by ssurilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	free_window(t_main *main)
 int	close_prog(t_main *main)
 {
 	mlx_destroy_display(main->mlx);
+	free_map(main);
+	free_window(main);
 	exit(0);
 	return (0);
 }
@@ -62,8 +64,8 @@ void	win_init(t_main *main, char *map)
 	temp = loadmap(fd);
 	map2 = ft_strdup(temp);
 	main->map.crab = map2;
-	main->map.maxlen = 34;
-	main->map.maxheight = 17;
+	main->map.maxlen = 32;
+	main->map.maxheight = 16;
 	rend_img(main);
 	first_rend(main);
 	nls = get_newline(map2) + 1;

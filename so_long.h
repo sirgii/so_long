@@ -6,7 +6,7 @@
 /*   By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 18:08:49 by ssurilla          #+#    #+#             */
-/*   Updated: 2023/05/05 18:01:52 by ssurilla         ###   ########.fr       */
+/*   Updated: 2023/05/09 15:49:10 by ssurilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,12 +126,10 @@ void			move_down(t_main *main);
 void			move_up(t_main *main);
 void			move_left(t_main *main);
 void			move_right(t_main *main);
-// void			movement(t_main *main, int dir);
 
 // error check
 void			init_error(t_main *main, int lines);
 int				move_and_check(t_main *main);
-// int				spread(t_main *main, char *map, int ppos);
 int				check_equal(t_main *main, int lines, int currentline,
 					int linelentot);
 

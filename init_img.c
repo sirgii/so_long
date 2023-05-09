@@ -6,7 +6,7 @@
 /*   By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 15:34:59 by ssurilla          #+#    #+#             */
-/*   Updated: 2023/05/05 17:56:55 by ssurilla         ###   ########.fr       */
+/*   Updated: 2023/05/08 17:32:14 by ssurilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	first_rend(t_main *main)
 		i = 0;
 		while (i <= main->map.maplen)
 		{
-			mlx_put_image_to_window(main->mlx, main->win, main->sp.wall.img,
-				i * 40, j * 40);
+			mlx_put_image_to_window(main->mlx, main->win, main->sp.bg.img,
+				i * 32, j * 32);
 			i++;
 		}
 		j++;
@@ -40,21 +40,21 @@ int	rend_nextfr(t_main *main)
 	int	count;
 
 	count = 0;
-	i = (((main->map.maxheight * 40) - (main->map.mapheight * 40)) / 2);
-	while (i < main->map.maxheight * 40)
+	i = 0; // (((main->map.maxheight * 32) - (main->map.mapheight * 32)) / 2);
+	while (i <  main->map.maxheight * 32)
 	{
-		j = (((main->map.maxlen * 40) - (main->map.maplen * 40)) / 2);
-		while (j < main->map.maxlen * 40)
+		j = 0; // (((main->map.maxlen * 32) - (main->map.maplen * 32)) / 2);
+		while (j < main->map.maxlen * 32)
 		{
 			img_check(count, main, j, i);
 			if (main->map.crab[count] == '\0')
 				break ;
 			if (main->map.crab[count] == '\n')
 				j += 1000;
-			j += 40;
+			j += 32;
 			count++;
 		}
-		i += 40;
+		i += 32;
 	}
 	return (0);
 }
@@ -80,12 +80,12 @@ void	img_check(int counter, t_main *main, int j, int i)
 void	rend_img(t_main *main)
 {
 	main->sp.bg.img = mlx_xpm_file_to_image(main->mlx,
-			"./textures/background.xpm", &main->sp.bg.imw, &main->sp.bg.imh);
+			"./textures/bg.xpm", &main->sp.bg.imw, &main->sp.bg.imh);
 	main->sp.player.img = mlx_xpm_file_to_image(main->mlx,
-			"./textures/pldown.xpm", &main->sp.player.imw,
+			"./textures/player.xpm", &main->sp.player.imw,
 			&main->sp.player.imh);
 	main->sp.collim.img = mlx_xpm_file_to_image(main->mlx,
-			"./textures/collectcoin.xpm", &main->sp.collim.imw,
+			"./textures/coins.xpm", &main->sp.collim.imw,
 			&main->sp.collim.imh);
 	main->sp.exit.img = mlx_xpm_file_to_image(main->mlx,
 			"./textures/exit.xpm", &main->sp.exit.imw, &main->sp.exit.imh);

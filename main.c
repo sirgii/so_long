@@ -6,7 +6,7 @@
 /*   By: ssurilla <ssurilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 19:59:03 by ssurilla          #+#    #+#             */
-/*   Updated: 2023/05/03 18:43:16 by ssurilla         ###   ########.fr       */
+/*   Updated: 2023/05/08 17:53:21 by ssurilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	}
 	main = (t_main *)malloc(sizeof(t_main));
 	main->mlx = mlx_init();
-	main->win = mlx_new_window(main->mlx, 1920, 1090, "SO_LONG");
+	main->win = mlx_new_window(main->mlx, 1080, 800, "SO_LONG");
 	win_init(main, argv[1]);
 	mlx_hook(main->win, 2, 1L, keypress_han, main);
 	mlx_hook(main->win, 17, 0, close_prog, main);
